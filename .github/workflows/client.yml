@@ -24,7 +24,6 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Prettier check
-        working-directory: packages/dreamtrail_client
         run: yarn format:check
 
       - name: Lint
