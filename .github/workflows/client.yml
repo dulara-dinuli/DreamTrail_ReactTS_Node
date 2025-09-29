@@ -32,7 +32,7 @@ jobs:
 
       - name: Run tests
         working-directory: packages/dreamtrail_client
-        run: yarn run test --if-present
+        run: yarn run --if-present test
 
       - name: Build project
         working-directory: packages/dreamtrail_client
