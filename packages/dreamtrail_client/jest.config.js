@@ -7,10 +7,10 @@ export default {
   testMatch: ["<rootDir>/test/**/*.test.(ts|tsx)"],
   globals: {
     "ts-jest": {
-      tsconfig: "<rootDir>/tsconfig.test.json"
-    }
+      tsconfig: "<rootDir>/tsconfig.test.json",
+    },
   },
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy"
-  }
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+  },
 };

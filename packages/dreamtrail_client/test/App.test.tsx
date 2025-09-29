@@ -6,7 +6,7 @@ test("Renders welcome message", () => {
   const { getByText } = render(
     <MemoryRouter>
       <App />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   const welcomeText = getByText(/welcome/i);
