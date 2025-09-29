@@ -1,0 +1,12 @@
+{
+  "name": "dreamtrail_react_ts",
+  "version": "1.0.0",
+  "description": "A platform that supports the community by allowing people to follow their dreams.",
+  "main": "index.js",
+  "author": "W.A.Dulara Settinayaka",
+  "license": "MIT",
+  "private": true,
+  "workspaces":[
+    "packages/*"
+  ]
+}
