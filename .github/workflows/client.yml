@@ -1,0 +1,51 @@
+name: Client CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/ checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/ setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        working-directory: packages/dreamtrail_client
+        run: yarn install --frozen-lockfile
+
+      - name: Prettier check
+        working-directory: packages/dreamtrail_client
+        run: yarn format:check
+
+      - name: Lint
+        working-directory: packages/dreamtrail_client
+        run: yarn lint
+
+      - name: Run tests
+        working-directory: packages/dreamtrail_client
+        run: yarn test --if-present
+
+      - name: Build project
+        working-directory: packages/dreamtrail_client
+        run: yarn build
+
+      - name: Install Vercel CLI
+        run: yarn global add vercel@latest
+
+      - name: Deploy to Vercel
+        working-directory: packages/dreamtrail_client
+        env:
+          VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
+        run: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+          vercel build --prod --token=$VERCEL_TOKEN
+          vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
