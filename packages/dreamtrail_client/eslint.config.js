@@ -26,9 +26,17 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json", "./tsconfig.test.json"],
         tsconfigRootDir: import.meta.dirname,
       },
+    },
+  },
+
+  {
+    files: ["setupTests.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
     },
   },
 ]);
