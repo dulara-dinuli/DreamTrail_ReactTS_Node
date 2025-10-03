@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 export default function LoadingSplash() {
   const navigate = useNavigate();
 
+  console.log("heyyy/nyyyyyyy");
+
   useEffect(() => {
     const timer = setTimeout(() => {
       void navigate("/home");
